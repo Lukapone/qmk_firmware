@@ -22,3 +22,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PERMISSIVE_HOLD
 //we want to send r if holding the key longer: For instance, holding and releasing LT(2, KC_SPC) without hitting another key will result in nothing happening. With this enabled, it will send KC_SPC instead
 #define RETRO_TAPPING
+
+#undef DIRECT_PINS
+#define DIRECT_PINS { \
+    { D7, F7, F6, F5, F4 }, \
+    { B1, B3, B2, B6, D3 }, \
+    { D1, D0, D4, C6, E6 }, \
+    { B5, B4, NO_PIN, NO_PIN, NO_PIN } \
+}
+#undef DIRECT_PINS_RIGHT
+#define DIRECT_PINS_RIGHT { \
+    { F4, F5, F6, F7, D7 }, \
+    { D1, D3, B2, B3, B1 }, \
+    { B4, E6, C6, B5, D0 }, \
+    { D4, B6, NO_PIN, NO_PIN, NO_PIN } \
+}
