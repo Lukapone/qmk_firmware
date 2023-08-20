@@ -20,11 +20,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
     * Base Layer: Modified RSTHD for some reason the thumb keys are swapped
     */
+    // [RSDT_0] = LAYOUT(
+    //        _______,    KC_C,    KC_Y,    KC_D, _______,                         _______, KC_L, KC_F, KC_U, _______,
+    //   LSFT_T(KC_R),    KC_S, LT(CNT,KC_T), LT(NUM,KC_H), DB_TOGG,               DB_TOGG, LT(NUM,KC_N), LT(CNT,KC_A), KC_I, KC_O,
+    //        _______, _______, _______, _______, QK_BOOT,                         QK_BOOT, _______, _______, _______, _______,
+    //                          LT(RSDT_1,KC_SPACE),  LT(RSDT_1,KC_W),                         LT(RSDT_1,KC_M), LT(RSDT_1,KC_E)
+    //                         // LT(RSDT_1,KC_W), KC_SPACE,                           KC_E, LT(RSDT_1,KC_M)
+    // ),
+
     [RSDT_0] = LAYOUT(
            _______,    KC_C,    KC_Y,    KC_D, _______,                         _______, KC_L, KC_F, KC_U, _______,
       LSFT_T(KC_R),    KC_S, LT(CNT,KC_T), LT(NUM,KC_H), DB_TOGG,               DB_TOGG, LT(NUM,KC_N), LT(CNT,KC_A), KC_I, KC_O,
            _______, _______, _______, _______, QK_BOOT,                         QK_BOOT, _______, _______, _______, _______,
-                             LT(RSDT_1,KC_SPACE),  LT(RSDT_1,KC_W),                         LT(RSDT_1,KC_M), LT(RSDT_1,KC_E)
+                             LT(RSDT_1,KC_W),  LT(RSDT_1,KC_M),                         LT(RSDT_1,KC_SPACE), LT(RSDT_1,KC_E)
                             // LT(RSDT_1,KC_W), KC_SPACE,                           KC_E, LT(RSDT_1,KC_M)
     ),
 
