@@ -5,10 +5,10 @@
 #include "quantum.h"
 
 enum layers {
-  RSDT_0 = 0,
-  RSDT_1,
-  NUM,
-  CNT
+  _LAYER_0 = 0,
+  _LAYER_1,
+  _LAYER_2_NUM,
+  _LAYER_3_ARROWS_CTRL_C
 };
 
 //if we need custom keycode support
