@@ -1,9 +1,11 @@
-// Left top row
-//COMB(enter_l,            KC_ENTER,                      LT(_LAYER_3_ARROWS_CTRL_C,KC_T), LT(_LAYER_2_NUM,KC_H))
-//COMB(enter_r,            KC_ENTER,                      LT(_LAYER_2_NUM,KC_N), KC_A, KC_I)
-//COMB(backspace_l,      KC_BACKSPACE,                    KC_F, KC_U)
-//COMB(backspace_r,      KC_BACKSPACE,                    KC_Y, KC_D)
-//COMB(tab,              KC_TAB,                          KC_C, KC_Y)
-//COMB(escape_l,           KC_ESCAPE,                     KC_S, LT(_LAYER_3_ARROWS_CTRL_C,KC_T))
-//COMB(escape_r,           KC_ESCAPE,                     KC_S, LT(_LAYER_3_ARROWS_CTRL_C,KC_T), LT(_LAYER_2_NUM,KC_H))
-COMB(highlight_line,   LSFT(KC_END),                    LSFT_T(KC_R), KC_S)
+// left
+COMB(enter_l_2,            KC_ENTER,        TD(TD_T_B_LT),TD(TD_H_P_LT))
+COMB(backspace_l,      KC_BACKSPACE,        TD(TD_Y_DOUBLE_QUOTE),TD(TD_D_J))
+COMB(tab_l,                  KC_TAB,        TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE))
+COMB(escape_l,            KC_ESCAPE,        KC_S, LT(_LAYER_3_ARROWS_CTRL_C,KC_T))
+COMB(highlight_line_l,  LSFT(KC_END),       LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S))
+
+//right
+COMB(enter_r_2,            KC_ENTER,        TD(TD_A_DOT_LT),TD(TD_I_K))
+COMB(enter_r_3,            KC_ENTER,        TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K))
+COMB(backspace_r,      KC_BACKSPACE,        TD(TD_F_COMMA),TD(TD_U_QUOTE))

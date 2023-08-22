@@ -1,5 +1,7 @@
 #pragma once
 
+#include "keycodes.h"
+
 #include "process_tap_dance.h"
 #include "action.h"
 
@@ -22,10 +24,26 @@ enum {
 // Tap Dance declarations
 enum {
     TD_C_ESC,
-    TD_F_COMMA,
     TD_Y_DOUBLE_QUOTE,
-    TD_A_COMMA_LT
+    TD_D_J,
+    TD_T_B_LT,
+    TD_H_P_LT,
+    TD_M_G_LT,
+    TD_F_COMMA,
+    TD_U_QUOTE,
+    TD_N_V_LT,
+    TD_A_DOT_LT,
+    TD_I_K,
+
 };
 
-void a_comma_lt_finished(tap_dance_state_t *state, void *user_data); //A -> , -> LT(3)
-void a_comma_lt_reset(tap_dance_state_t *state, void *user_data);
+void a_dot_lt_finished(tap_dance_state_t *state, void *user_data); //A -> . -> LT(3)
+void a_dot_lt_reset(tap_dance_state_t *state, void *user_data);
+void n_v_lt_finished(tap_dance_state_t *state, void *user_data); // N -> V -> LT(6)
+void n_v_lt_reset(tap_dance_state_t *state, void *user_data);
+void t_b_lt_finished(tap_dance_state_t *state, void *user_data); // T -> B -> LT(3)
+void t_b_lt_reset(tap_dance_state_t *state, void *user_data);
+void h_p_lt_finished(tap_dance_state_t *state, void *user_data); // H -> P -> LT(2)
+void h_p_lt_reset(tap_dance_state_t *state, void *user_data);
+void m_g_lt_finished(tap_dance_state_t *state, void *user_data); // M -> G -> LT(1)
+void m_g_lt_reset(tap_dance_state_t *state, void *user_data);

@@ -1,16 +1,7 @@
 // Useful tapdance functions!
 
+//user
 #include "tapdances.h"
-#include "keycodes.h"
-
-//the finished function is called after the tap dance term TAPPING_TERM
-tap_dance_action_t tap_dance_actions[] = {
-        // Tap once for Escape, twice for Caps Lock
-    [TD_C_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_C, KC_ESC),
-    [TD_F_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_F, KC_PCMM),
-    [TD_Y_DOUBLE_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_Y, KC_DOUBLE_QUOTE),
-    [TD_A_COMMA_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, a_comma_lt_finished, a_comma_lt_reset)
-};
 
 /* Return an integer that corresponds to what kind of tap dance should be executed.
  *
@@ -71,8 +62,8 @@ static tap xtap_state = {
   .state = 0
 };
 
-// A -> LT(3) -> "
-void a_comma_lt_finished (tap_dance_state_t *state, void *user_data) {
+// A -> . -> LT(3)
+void a_dot_lt_finished (tap_dance_state_t *state, void *user_data) {
   xtap_state.state = cur_dance(state);
   switch (xtap_state.state) {
     case SINGLE_TAP:
@@ -82,12 +73,12 @@ void a_comma_lt_finished (tap_dance_state_t *state, void *user_data) {
       layer_on(_LAYER_3_ARROWS_CTRL_C);
       break;
     case DOUBLE_TAP:
-            tap_code(KC_COMMA);
+            tap_code(KC_DOT);
       break;
   }
 }
 
-void a_comma_lt_reset (tap_dance_state_t *state, void *user_data) {
+void a_dot_lt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (xtap_state.state==SINGLE_HOLD) {
     layer_off(_LAYER_3_ARROWS_CTRL_C);
@@ -95,4 +86,99 @@ void a_comma_lt_reset (tap_dance_state_t *state, void *user_data) {
   xtap_state.state = NONE;
 }
 
+// N -> V -> LT(6)
+void n_v_lt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_N);
+      break;
+    case SINGLE_HOLD:
+      layer_on(_LAYER_6_F_KEYS);
+      break;
+    case DOUBLE_TAP:
+            tap_code(KC_V);
+      break;
+  }
+}
 
+void n_v_lt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released then switch off the layer
+  if (xtap_state.state==SINGLE_HOLD) {
+    layer_off(_LAYER_6_F_KEYS);
+  }
+  xtap_state.state = NONE;
+}
+
+
+// T -> B -> LT(6)
+void t_b_lt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_T);
+      break;
+    case SINGLE_HOLD:
+      layer_on(_LAYER_3_ARROWS_CTRL_C);
+      break;
+    case DOUBLE_TAP:
+            tap_code(KC_B);
+      break;
+  }
+}
+
+void t_b_lt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released then switch off the layer
+  if (xtap_state.state==SINGLE_HOLD) {
+    layer_off(_LAYER_3_ARROWS_CTRL_C);
+  }
+  xtap_state.state = NONE;
+}
+
+// H -> P -> LT(2)
+void h_p_lt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_H);
+      break;
+    case SINGLE_HOLD:
+      layer_on(_LAYER_2_NUM);
+      break;
+    case DOUBLE_TAP:
+            tap_code(KC_P);
+      break;
+  }
+}
+
+void h_p_lt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released then switch off the layer
+  if (xtap_state.state==SINGLE_HOLD) {
+    layer_off(_LAYER_2_NUM);
+  }
+  xtap_state.state = NONE;
+}
+
+// M -> G -> LT(1)
+void m_g_lt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_M);
+      break;
+    case SINGLE_HOLD:
+      layer_on(_LAYER_2_NUM);
+      break;
+    case DOUBLE_TAP:
+            tap_code(KC_G);
+      break;
+  }
+}
+
+void m_g_lt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released then switch off the layer
+  if (xtap_state.state==SINGLE_HOLD) {
+    layer_off(_LAYER_2_NUM);
+  }
+  xtap_state.state = NONE;
+}

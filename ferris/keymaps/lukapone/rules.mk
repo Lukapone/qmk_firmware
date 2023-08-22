@@ -25,4 +25,6 @@ MAGIC_ENABLE = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 
+ifdef TAP_DANCE_ENABLE
 SRC += tapdances.c
+endif
