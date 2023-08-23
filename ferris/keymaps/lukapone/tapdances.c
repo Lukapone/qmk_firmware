@@ -185,3 +185,51 @@ void m_g_lt_reset (tap_dance_state_t *state, void *user_data) {
   }
   xtap_state.state = NONE;
 }
+
+// C -> ESC -> LALT()
+void c_esc_lt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_C);
+      break;
+    case SINGLE_HOLD:
+      register_mods(MOD_BIT(KC_LALT));
+      break;
+    case DOUBLE_TAP:
+            tap_code(KC_ESCAPE);
+      break;
+  }
+}
+
+void c_esc_lt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released unregister ALT mod
+  if (xtap_state.state==SINGLE_HOLD) {
+    unregister_mods(MOD_BIT(KC_LALT));
+  }
+  xtap_state.state = NONE;
+}
+
+// U -> QUOTE -> LALT()
+void u_quote_alt_finished (tap_dance_state_t *state, void *user_data) {
+  xtap_state.state = cur_dance(state);
+  switch (xtap_state.state) {
+    case SINGLE_TAP:
+      tap_code(KC_U);
+      break;
+    case SINGLE_HOLD:
+      register_mods(MOD_BIT(KC_LALT));
+      break;
+    case DOUBLE_TAP:
+            tap_code16(C_KC_DOUBLE_QUOTE);
+      break;
+  }
+}
+
+void u_quote_alt_reset (tap_dance_state_t *state, void *user_data) {
+  //if the key was held down and now is released unregister ALT mod
+  if (xtap_state.state==SINGLE_HOLD) {
+    unregister_mods(MOD_BIT(KC_LALT));
+  }
+  xtap_state.state = NONE;
+}

@@ -47,3 +47,7 @@ void h_p_lt_finished(tap_dance_state_t *state, void *user_data); // H -> P -> LT
 void h_p_lt_reset(tap_dance_state_t *state, void *user_data);
 void m_g_lt_finished(tap_dance_state_t *state, void *user_data); // M -> G -> LT(1)
 void m_g_lt_reset(tap_dance_state_t *state, void *user_data);
+void c_esc_lt_finished(tap_dance_state_t *state, void *user_data); // C -> ESC -> LALT()
+void c_esc_lt_reset(tap_dance_state_t *state, void *user_data);
+void u_quote_alt_finished(tap_dance_state_t *state, void *user_data); // U -> QUOTE -> LALT()
+void u_quote_alt_reset(tap_dance_state_t *state, void *user_data);

@@ -25,6 +25,8 @@ enum user_custom_keycodes {
     DUPLICATE_LINE      = LCTL(KC_D),
     COMMENT_OUT         = LCTL(KC_SLASH),
     SAVE                = LCTL(KC_S),
+    FIND                = LCTL(KC_F),
+    FIND_INTELIJ_ALL    = LCTL(S(KC_F)),
     PIPE                = S(KC_NONUS_BACKSLASH),
     HASH                = KC_NONUS_HASH,
     TILDE               = S(KC_NONUS_HASH),
@@ -50,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ),
 
     [_LAYER_0] = LAYOUT(
-           _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),KC_D,_______,                                                 _______, KC_L,TD(TD_F_COMMA),TD(TD_U_QUOTE), _______,
+           _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),_______,                                                 _______,LCTL_T(KC_L),TD(TD_F_COMMA),TD(TD_U_QUOTE), _______,
 LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
            DT_PRNT,DT_UP,DT_DOWN,S(RSFT(KC_V)), QK_BOOT,                                                                      QK_BOOT, _______, _______, _______, _______,
                              LT(_LAYER_1,KC_W),TD(TD_M_G_LT),                                                          LT(_LAYER_1,KC_SPACE), LT(_LAYER_1,KC_E)
@@ -78,8 +80,8 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
     ),
 
     [_LAYER_4_BRACKETS] = LAYOUT(
-      _______, _______, _______, _______, _______,                                                   _______,  KC_LEFT_BRACKET,KC_RIGHT_BRACKET,  _______, _______,
-      _______, _______,COMMENT_OUT,DUPLICATE_LINE, _______,                                                   _______,  KC_LEFT_PAREN,KC_RIGHT_PAREN, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE,
+      _______, _______, FIND_INTELIJ_ALL, FIND, _______,                                                   _______,  KC_LEFT_BRACKET,KC_RIGHT_BRACKET,  _______, _______,
+      SAVE, _______,COMMENT_OUT,DUPLICATE_LINE, _______,                                                   _______,  KC_LEFT_PAREN,KC_RIGHT_PAREN, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 _______, _______,                                                      KC_COLON, KC_SEMICOLON
     ),
@@ -111,7 +113,7 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
 //the finished function is called after the tap dance term TAPPING_TERM
 tap_dance_action_t tap_dance_actions[] = {
     //left
-    [TD_C_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_C, KC_ESC),
+    [TD_C_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, c_esc_lt_finished, c_esc_lt_reset),
     [TD_Y_DOUBLE_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_Y, C_KC_DOUBLE_QUOTE),
     [TD_D_J] = ACTION_TAP_DANCE_DOUBLE(KC_D, KC_J),
 
@@ -121,7 +123,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_M_G_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, m_g_lt_finished, m_g_lt_reset),
     //right
     [TD_F_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_F, KC_COMMA),
-    [TD_U_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_U, KC_QUOTE),
+    [TD_U_QUOTE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_quote_alt_finished, u_quote_alt_reset),
 
     [TD_N_V_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, n_v_lt_finished, n_v_lt_reset),
     [TD_A_DOT_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, a_dot_lt_finished, a_dot_lt_reset),
