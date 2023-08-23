@@ -4,6 +4,7 @@
 
 #include "quantum.h"
 
+
 enum layers {
   _LAYER_0 = 0,
   _LAYER_1,
@@ -13,6 +14,8 @@ enum layers {
   _LAYER_5_SYMBOLS,
   _LAYER_6_F_KEYS
 };
+
+
 
 //this depends on keyboard layout chosen
 // could be @ or "

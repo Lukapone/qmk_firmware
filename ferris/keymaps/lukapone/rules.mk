@@ -4,6 +4,10 @@ CONSOLE_ENABLE = yes
 # for combos
 COMBO_ENABLE = yes
 TAP_DANCE_ENABLE = yes
+
+#for debugging
+COMMAND_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 # https://docs.qmk.fm/#/feature_combo
 VPATH += keyboards/gboards
 

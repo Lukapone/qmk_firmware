@@ -32,9 +32,12 @@
  */
 int cur_dance (tap_dance_state_t *state) {
   if (state->count == 1) {
-    if (state->interrupted || !state->pressed)  return SINGLE_TAP;
+    // if (state->interrupted || !state->pressed)  return SINGLE_TAP;
+    // //key has not been interrupted, but they key is still held. Means you want to send a 'HOLD'.
+    // else return SINGLE_HOLD;
+    if (!state->pressed)  return SINGLE_TAP;
     //key has not been interrupted, but they key is still held. Means you want to send a 'HOLD'.
-    else return SINGLE_HOLD;
+    else return SINGLE_HOLD; //we want the ctrl + c work and not think it was th pressed
   }
   else if (state->count == 2) {
     /*
@@ -94,7 +97,7 @@ void n_v_lt_finished (tap_dance_state_t *state, void *user_data) {
       tap_code(KC_N);
       break;
     case SINGLE_HOLD:
-      layer_on(_LAYER_6_F_KEYS);
+      layer_on(_LAYER_5_SYMBOLS);
       break;
     case DOUBLE_TAP:
             tap_code(KC_V);
@@ -105,7 +108,7 @@ void n_v_lt_finished (tap_dance_state_t *state, void *user_data) {
 void n_v_lt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (xtap_state.state==SINGLE_HOLD) {
-    layer_off(_LAYER_6_F_KEYS);
+    layer_off(_LAYER_5_SYMBOLS);
   }
   xtap_state.state = NONE;
 }
@@ -167,7 +170,7 @@ void m_g_lt_finished (tap_dance_state_t *state, void *user_data) {
       tap_code(KC_M);
       break;
     case SINGLE_HOLD:
-      layer_on(_LAYER_2_NUM);
+      layer_on(_LAYER_1);
       break;
     case DOUBLE_TAP:
             tap_code(KC_G);
@@ -178,7 +181,7 @@ void m_g_lt_finished (tap_dance_state_t *state, void *user_data) {
 void m_g_lt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (xtap_state.state==SINGLE_HOLD) {
-    layer_off(_LAYER_2_NUM);
+    layer_off(_LAYER_1);
   }
   xtap_state.state = NONE;
 }
