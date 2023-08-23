@@ -1,5 +1,6 @@
 // left
-COMB(enter_l_2,                      KC_ENTER,        TD(TD_T_B_LT),TD(TD_H_P_LT))
+//COMB(enter_l_2,                      KC_ENTER,        TD(TD_T_B_LT),TD(TD_H_P_LT))
+COMB(enter_l_2,                      KC_ENTER,        LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT))
 //COMB(backspace_l,                KC_BACKSPACE,        TD(TD_Y_DOUBLE_QUOTE),TD(TD_D_J))
 COMB(backspace_l,                KC_BACKSPACE,        TD(TD_Y_DOUBLE_QUOTE),KC_D)
 COMB(tab_l,                            KC_TAB,        TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE))

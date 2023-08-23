@@ -51,14 +51,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LAYER_0] = LAYOUT(
            _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),KC_D,_______,                                                 _______, KC_L,TD(TD_F_COMMA),TD(TD_U_QUOTE), _______,
-LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),TD(TD_T_B_LT),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
+LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
            DT_PRNT,DT_UP,DT_DOWN,S(RSFT(KC_V)), QK_BOOT,                                                                      QK_BOOT, _______, _______, _______, _______,
                              LT(_LAYER_1,KC_W),TD(TD_M_G_LT),                                                          LT(_LAYER_1,KC_SPACE), LT(_LAYER_1,KC_E)
     ),
 
     [_LAYER_1] = LAYOUT(
-      _______, KC_G, KC_B, KC_P, _______,                                                           _______,KC_G,KC_B,KC_P, _______,
-      LSFT_T(KC_Z),KC_Q, KC_X, KC_J, _______,                                                       _______,KC_V, KC_PDOT,KC_K, LSFT_T(KC_SLSH),
+      _______,KC_Q, KC_X, KC_J, _______,                                                           _______,KC_G,KC_B,KC_P, _______,
+      LSFT_T(KC_Z),KC_G, KC_B, KC_P, _______,                                                       _______,KC_V, KC_PDOT,KC_K, LSFT_T(KC_SLSH),
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                               KC_SCLN,KC_NONUS_BACKSLASH,                                                      KC_EQL, KC_MINS
     ),
@@ -71,7 +71,7 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),TD(TD_T_B_LT),TD(TD_H_P_LT),DB_TOGG,    
     ),
 
     [_LAYER_3_ARROWS_CTRL_C] = LAYOUT(
-      _______,CUT, _______,NEW_FILE, _______,                                                   _______,  _______,    KC_UP,  TO(_LAYER_0), _______,
+      _______,CUT, _______,NEW_FILE, _______,                                                   _______,  KC_DELETE,    KC_UP,  TO(_LAYER_0), _______,
       SELECT_ALL,PASTE,_______,COPY, _______,                                                   _______,  KC_LEFT,  KC_DOWN, KC_RIGHT, _______,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 UNDO,REDO,                                                      KC_LT, KC_GT
