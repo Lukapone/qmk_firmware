@@ -15,11 +15,12 @@
 #define xxxxxxx KC_NO
 enum user_custom_keycodes {
     UNUSED              = QK_USER,
-    CUT                 = LCTL_T(LCTL(KC_X)),
+    SEND_LP,
+    CUT                 = LCTL(KC_X),
     COPY                = LCTL(KC_C),
     PASTE               = LCTL(KC_V),
     NEW_FILE            = LCTL(KC_N),
-    SELECT_ALL          = LSFT_T(LCTL(KC_A)),
+    SELECT_ALL          = LCTL(KC_A),
     UNDO                = LCTL(KC_Z),
     REDO                = LCTL(KC_Y),
     DUPLICATE_LINE      = LCTL(KC_D),
@@ -66,7 +67,7 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
     ),
 
     [_LAYER_2_NUM] = LAYOUT(
-      _______,KC_ASTERISK, KC_EQUAL, _______, _______,                                                      _______,    KC_5,    KC_6,    KC_7, _______,
+      _______,SEND_LP, KC_EQUAL, _______, _______,                                                      _______,    KC_5,    KC_6,    KC_7, _______,
       LSFT_T(KC_SLASH),KC_MINS,KC_PLUS,_______, _______,                                                      _______,    KC_1,    KC_2,    KC_3, LSFT_T(KC_4),
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 KC_9,    C(KC_F4),                                                      KC_8, KC_0
@@ -76,7 +77,7 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
       _______,CUT, _______,NEW_FILE, _______,                                                   _______,  KC_DELETE,    KC_UP,  TO(_LAYER_0), _______,
       SELECT_ALL,PASTE,_______,COPY, _______,                                                   _______,  KC_LEFT,  KC_DOWN, KC_RIGHT, _______,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
-                                UNDO,REDO,                                                      KC_LT, KC_GT
+                                UNDO,REDO,                                                      LCTL_T(KC_LT), LSFT_T(KC_GT)
     ),
 
     [_LAYER_4_BRACKETS] = LAYOUT(
@@ -156,5 +157,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     uprintf("Tapping term: %u\n",g_tapping_term);
 #endif
+  switch (keycode) {
+    case SEND_LP:
+        if (record->event.pressed) {
+            SEND_STRING("xxxxxxxx");
+        }
+        return false;
+  }
+
   return true;
 }
