@@ -221,7 +221,7 @@ void u_quote_alt_finished (tap_dance_state_t *state, void *user_data) {
       register_mods(MOD_BIT(KC_LALT));
       break;
     case DOUBLE_TAP:
-            tap_code16(C_KC_DOUBLE_QUOTE);
+            tap_code16(KC_QUOTE);
       break;
   }
 }

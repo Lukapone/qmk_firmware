@@ -15,11 +15,11 @@
 #define xxxxxxx KC_NO
 enum user_custom_keycodes {
     UNUSED              = QK_USER,
-    CUT                 = LCTL(KC_X),
+    CUT                 = LCTL_T(LCTL(KC_X)),
     COPY                = LCTL(KC_C),
     PASTE               = LCTL(KC_V),
     NEW_FILE            = LCTL(KC_N),
-    SELECT_ALL          = LCTL(KC_A),
+    SELECT_ALL          = LSFT_T(LCTL(KC_A)),
     UNDO                = LCTL(KC_Z),
     REDO                = LCTL(KC_Y),
     DUPLICATE_LINE      = LCTL(KC_D),
@@ -69,7 +69,7 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
       _______,KC_ASTERISK, KC_EQUAL, _______, _______,                                                      _______,    KC_5,    KC_6,    KC_7, _______,
       LSFT_T(KC_SLASH),KC_MINS,KC_PLUS,_______, _______,                                                      _______,    KC_1,    KC_2,    KC_3, LSFT_T(KC_4),
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
-                                KC_9,    _______,                                                      KC_8, KC_0
+                                KC_9,    C(KC_F4),                                                      KC_8, KC_0
     ),
 
     [_LAYER_3_ARROWS_CTRL_C] = LAYOUT(
@@ -80,14 +80,14 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
     ),
 
     [_LAYER_4_BRACKETS] = LAYOUT(
-      _______, _______, FIND_INTELIJ_ALL, FIND, _______,                                                   _______,  KC_LEFT_BRACKET,KC_RIGHT_BRACKET,  _______, _______,
+      _______, _______, KC_F5, FIND, _______,                                                   _______,  KC_LEFT_BRACKET,KC_RIGHT_BRACKET,  _______, _______,
       SAVE, _______,COMMENT_OUT,DUPLICATE_LINE, _______,                                                   _______,  KC_LEFT_PAREN,KC_RIGHT_PAREN, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 _______, _______,                                                      KC_COLON, KC_SEMICOLON
     ),
 
     [_LAYER_5_SYMBOLS] = LAYOUT(
-      _______, KC_GRAVE, C_KC_AT, KC_PERCENT, _______,                                                   _______,  _______,COLON,KC_SCLN, _______,
+      _______, S(KC_7), C_KC_AT, KC_PERCENT, _______,                                                   _______,  _______,COLON,KC_SCLN, _______,
       PIPE, HASH, KC_DOLLAR, KC_ASTERISK, _______,                                         _______,  _______,KC_EQUAL,UNDERSCORE,TILDE,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 _______, _______,                                                      _______, _______
