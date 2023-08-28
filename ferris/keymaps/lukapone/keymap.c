@@ -8,6 +8,10 @@
 #include "g/keymap_combo.h"
 #include "keycodes.h"
 
+//UPDATES:
+//i think we want to have one shot mods for the Function layer
+//remove the G key from the double tapping the M key
+
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
@@ -49,14 +53,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //   LSFT_T(KC_R),    KC_S, LT(CNT,KC_T), LT(NUM,KC_H), DB_TOGG,               DB_TOGG, LT(NUM,KC_N), LT(CNT,KC_A), KC_I, KC_O,
     //        _______, _______, _______, _______, QK_BOOT,                         QK_BOOT, _______, _______, _______, _______,
     //                          LT(RSDT_1,KC_SPACE),  LT(RSDT_1,KC_W),                         LT(RSDT_1,KC_M), LT(RSDT_1,KC_E)
-    //                         // LT(RSDT_1,KC_W), KC_SPACE,                           KC_E, LT(RSDT_1,KC_M)
+    //                         // LT(RSDT_1,KC_W), KC_SPACE,        _LAYER_5_SYMBOLS                   KC_E, LT(RSDT_1,KC_M)
     // ),
 
     [_LAYER_0] = LAYOUT(
            _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),_______,                                                 _______,LCTL_T(KC_L),TD(TD_F_COMMA),TD(TD_U_QUOTE), _______,
-LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
+LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,LT(_LAYER_5_SYMBOLS,KC_N),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
            DT_PRNT,DT_UP,DT_DOWN,S(RSFT(KC_V)), QK_BOOT,                                                                      QK_BOOT, _______, _______, _______, _______,
-                             LT(_LAYER_1,KC_W),TD(TD_M_G_LT),                                                          LT(_LAYER_1,KC_SPACE), LT(_LAYER_1,KC_E)
+                             LT(_LAYER_1,KC_W),LT(_LAYER_1,KC_M),                                                          LT(_LAYER_1,KC_SPACE), LT(_LAYER_1,KC_E)
     ),
 
     [_LAYER_1] = LAYOUT(
@@ -77,9 +81,9 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
       _______,CUT, _______,NEW_FILE, _______,                                                   _______,  KC_DELETE,    KC_UP,  TO(_LAYER_0), _______,
       SELECT_ALL,PASTE,_______,COPY, _______,                                                   _______,  KC_LEFT,  KC_DOWN, KC_RIGHT, _______,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
-                                UNDO,REDO,                                                      LCTL_T(KC_LT), LSFT_T(KC_GT)
+                                UNDO,REDO,                                                      KC_LT, KC_GT
     ),
-
+// LCTL_T(S(KC_LT)), LSFT_T(S(KC_GT))
     [_LAYER_4_BRACKETS] = LAYOUT(
       _______, _______, KC_F5, FIND, _______,                                                   _______,  KC_LEFT_BRACKET,KC_RIGHT_BRACKET,  _______, _______,
       SAVE, _______,COMMENT_OUT,DUPLICATE_LINE, _______,                                                   _______,  KC_LEFT_PAREN,KC_RIGHT_PAREN, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE,
@@ -95,10 +99,10 @@ LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
     ),
 
     [_LAYER_6_F_KEYS] = LAYOUT(
-      _______, TO(_LAYER_0),KC_F2,KC_F5, _______,                                                   _______,  KC_F5, KC_F6, KC_F7, _______,
-      _______, _______, A(KC_ENTER), KC_F12, _______,                                                     _______,  KC_F1,KC_F2, KC_F3, KC_F4,
+      _______, _______,KC_F2,KC_F5, _______,                                                   _______,  KC_F6, _______, KC_F7, _______,
+      _______, _______, A(KC_ENTER), KC_F12, _______,                                                     _______,  KC_F1,_______, KC_F3, KC_F4,
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
-                                KC_F9, KC_F10,                                                      KC_F8, KC_F11
+                                KC_F8, KC_F9,                                                      KC_F10, KC_F11
     )
 
 };
@@ -160,7 +164,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case SEND_LP:
         if (record->event.pressed) {
-            SEND_STRING("xxxxxxxx");
+            SEND_STRING("5990699Lp21");
         }
         return false;
   }

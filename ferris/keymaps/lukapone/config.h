@@ -18,9 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // https://docs.qmk.fm/#/tap_hold
-#define TAPPING_TERM 220
+#define TAPPING_TERM 190
 
-#define PERMISSIVE_HOLD
+//#define PERMISSIVE_HOLD
 //we want to send r if holding the key longer: For instance, holding and releasing LT(2, KC_SPC) without hitting another key will result in nothing happening. With this enabled, it will send KC_SPC instead
 #define RETRO_TAPPING
 //only  use combos from layer 0

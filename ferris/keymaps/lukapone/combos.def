@@ -6,7 +6,7 @@ COMB(backspace_l,                KC_BACKSPACE,        TD(TD_Y_DOUBLE_QUOTE),LCTL
 COMB(tab_l,                            KC_TAB,        TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE))
 COMB(escape_l,                      KC_ESCAPE,        KC_S, LT(_LAYER_3_ARROWS_CTRL_C,KC_T))
 COMB(highlight_line_l,           LSFT(KC_END),       LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S))
-COMB(turn_on_f_keys_layer_l, TO(_LAYER_6_F_KEYS),       LT(_LAYER_4_BRACKETS,KC_S),TD(TD_H_P_LT))
+
 
 //right
 COMB(enter_r_2,                      KC_ENTER,        TD(TD_A_DOT_LT),TD(TD_I_K))

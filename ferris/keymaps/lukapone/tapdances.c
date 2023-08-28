@@ -73,7 +73,7 @@ void a_dot_lt_finished (tap_dance_state_t *state, void *user_data) {
       tap_code(KC_A);
       break;
     case SINGLE_HOLD:
-      layer_on(_LAYER_3_ARROWS_CTRL_C);
+      layer_on(_LAYER_6_F_KEYS);
       break;
     case DOUBLE_TAP:
             tap_code(KC_DOT);
@@ -84,7 +84,7 @@ void a_dot_lt_finished (tap_dance_state_t *state, void *user_data) {
 void a_dot_lt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (xtap_state.state==SINGLE_HOLD) {
-    layer_off(_LAYER_3_ARROWS_CTRL_C);
+    layer_off(_LAYER_6_F_KEYS);
   }
   xtap_state.state = NONE;
 }
