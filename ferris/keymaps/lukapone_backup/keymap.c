@@ -10,7 +10,7 @@
 
 //UPDATES:
 //i think we want to have one shot mods for the Function layer
-// put the GUI on the Y and F
+//remove the G key from the double tapping the M key
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -57,14 +57,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ),
 
     [_LAYER_0] = LAYOUT(
-           _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),_______,                                                 _______,LCTL_T(KC_L),LGUI_T(KC_F),TD(TD_U_QUOTE), _______,
-LSFT_T(KC_W),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,LT(_LAYER_1,KC_N),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
+           _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),_______,                                                 _______,LCTL_T(KC_L),TD(TD_F_COMMA),TD(TD_U_QUOTE), _______,
+LSFT_T(KC_R),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,LT(_LAYER_5_SYMBOLS,KC_N),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
            DT_PRNT,DT_UP,DT_DOWN,S(RSFT(KC_V)), QK_BOOT,                                                                      QK_BOOT, _______, _______, _______, _______,
-                             LT(_LAYER_1,KC_R),LT(_LAYER_2_NUM,KC_M),                                                          LT(_LAYER_5_SYMBOLS,KC_SPACE), LT(_LAYER_1,KC_E)
+                             LT(_LAYER_1,KC_W),LT(_LAYER_1,KC_M),                                                          LT(_LAYER_1,KC_SPACE), LT(_LAYER_1,KC_E)
     ),
 
     [_LAYER_1] = LAYOUT(
-      _______,KC_Q, KC_X, KC_J, _______,                                                           _______,KC_DOT,KC_COMMA,KC_P, _______,
+      _______,KC_Q, KC_X, KC_J, _______,                                                           _______,KC_G,KC_B,KC_P, _______,
       LSFT_T(KC_Z),KC_G, KC_B, KC_P, _______,                                                       _______,KC_V, KC_PDOT,KC_K, LSFT_T(KC_SLSH),
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                               KC_SCLN,KC_NONUS_BACKSLASH,                                                      KC_EQL, KC_MINS
@@ -72,7 +72,7 @@ LSFT_T(KC_W),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
 
     [_LAYER_2_NUM] = LAYOUT(
       _______,SEND_LP, KC_EQUAL, _______, _______,                                                      _______,    KC_5,    KC_6,    KC_7, _______,
-      LSFT_T(KC_SLASH),KC_MINS,KC_9,KC_8, _______,                                                      _______,    KC_1,    KC_2,    KC_3, LSFT_T(KC_4),
+      LSFT_T(KC_SLASH),KC_MINS,KC_PLUS,_______, _______,                                                      _______,    KC_1,    KC_2,    KC_3, LSFT_T(KC_4),
       _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
                                 KC_9,    C(KC_F4),                                                      KC_8, KC_0
     ),
@@ -119,8 +119,7 @@ LSFT_T(KC_W),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_
 tap_dance_action_t tap_dance_actions[] = {
     //left
     [TD_C_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, c_esc_lt_finished, c_esc_lt_reset),
-    // [TD_Y_DOUBLE_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_Y, C_KC_DOUBLE_QUOTE),
-    [TD_Y_DOUBLE_QUOTE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, y_double_quote_lt_finished, y_double_quote_lt_reset),
+    [TD_Y_DOUBLE_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_Y, C_KC_DOUBLE_QUOTE),
     [TD_D_J] = ACTION_TAP_DANCE_DOUBLE(KC_D, KC_J),
 
     [TD_T_B_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, t_b_lt_finished, t_b_lt_reset),
@@ -128,8 +127,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
     [TD_M_G_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, m_g_lt_finished, m_g_lt_reset),
     //right
-    // [TD_F_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_F, KC_COMMA),
-    [TD_F_COMMA] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, f_comma_lt_finished, f_comma_lt_reset),
+    [TD_F_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_F, KC_COMMA),
     [TD_U_QUOTE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_quote_alt_finished, u_quote_alt_reset),
 
     [TD_N_V_LT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, n_v_lt_finished, n_v_lt_reset),

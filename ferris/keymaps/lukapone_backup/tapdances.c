@@ -146,7 +146,7 @@ void h_p_lt_finished (tap_dance_state_t *state, void *user_data) {
       tap_code(KC_H);
       break;
     case SINGLE_HOLD:
-      layer_on(_LAYER_1);
+      layer_on(_LAYER_2_NUM);
       break;
     case DOUBLE_TAP:
             tap_code(KC_P);
@@ -157,7 +157,7 @@ void h_p_lt_finished (tap_dance_state_t *state, void *user_data) {
 void h_p_lt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released then switch off the layer
   if (xtap_state.state==SINGLE_HOLD) {
-    layer_off(_LAYER_1);
+    layer_off(_LAYER_2_NUM);
   }
   xtap_state.state = NONE;
 }
@@ -230,54 +230,6 @@ void u_quote_alt_reset (tap_dance_state_t *state, void *user_data) {
   //if the key was held down and now is released unregister ALT mod
   if (xtap_state.state==SINGLE_HOLD) {
     unregister_mods(MOD_BIT(KC_LALT));
-  }
-  xtap_state.state = NONE;
-}
-
-// Y -> " -> GUI
-void y_double_quote_lt_finished (tap_dance_state_t *state, void *user_data) {
-  xtap_state.state = cur_dance(state);
-  switch (xtap_state.state) {
-    case SINGLE_TAP:
-      tap_code(KC_Y);
-      break;
-    case SINGLE_HOLD:
-      register_mods(MOD_BIT(KC_LEFT_GUI));
-      break;
-    case DOUBLE_TAP:
-            tap_code16(C_KC_DOUBLE_QUOTE);
-      break;
-  }
-}
-
-void y_double_quote_lt_reset (tap_dance_state_t *state, void *user_data) {
-  //if the key was held down and now is released unregister ALT mod
-  if (xtap_state.state==SINGLE_HOLD) {
-    unregister_mods(MOD_BIT(KC_LEFT_GUI));
-  }
-  xtap_state.state = NONE;
-}
-
-// F -> , -> GUI
-void f_comma_lt_finished (tap_dance_state_t *state, void *user_data) {
-  xtap_state.state = cur_dance(state);
-  switch (xtap_state.state) {
-    case SINGLE_TAP:
-      tap_code(KC_F);
-      break;
-    case SINGLE_HOLD:
-      register_mods(MOD_BIT(KC_LEFT_GUI));
-      break;
-    case DOUBLE_TAP:
-            tap_code16(KC_COMMA);
-      break;
-  }
-}
-
-void f_comma_lt_reset (tap_dance_state_t *state, void *user_data) {
-  //if the key was held down and now is released unregister ALT mod
-  if (xtap_state.state==SINGLE_HOLD) {
-    unregister_mods(MOD_BIT(KC_LEFT_GUI));
   }
   xtap_state.state = NONE;
 }

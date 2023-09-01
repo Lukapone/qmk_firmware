@@ -11,7 +11,7 @@ COMB(highlight_line_l,           LSFT(KC_END),       LSFT_T(KC_R),LT(_LAYER_4_BR
 //right
 COMB(enter_r_2,                      KC_ENTER,        TD(TD_A_DOT_LT),TD(TD_I_K))
 COMB(enter_r_3,                      KC_ENTER,        TD(TD_N_V_LT),TD(TD_A_DOT_LT),TD(TD_I_K))
-COMB(backspace_r,                 KC_BACKSPACE,       LGUI_T(KC_F),TD(TD_U_QUOTE))
-COMB(tab_r,                            KC_TAB,        LCTL_T(KC_L),LGUI_T(KC_F))
+COMB(backspace_r,                 KC_BACKSPACE,       TD(TD_F_COMMA),TD(TD_U_QUOTE))
+COMB(tab_r,                            KC_TAB,        LCTL_T(KC_L),TD(TD_F_COMMA))
 COMB(turn_on_arrows_layer_r, TO(_LAYER_3_ARROWS_CTRL_C),     TD(TD_N_V_LT),TD(TD_I_K))
-COMB(delete_t,                         KC_DELETE,     LCTL_T(KC_L),LGUI_T(KC_F),TD(TD_U_QUOTE))
+COMB(delete_t,                         KC_DELETE,     LCTL_T(KC_L),TD(TD_F_COMMA),TD(TD_U_QUOTE))

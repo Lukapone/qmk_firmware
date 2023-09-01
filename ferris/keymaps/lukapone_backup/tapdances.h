@@ -25,13 +25,11 @@ enum {
 enum {
     TD_C_ESC,
     TD_Y_DOUBLE_QUOTE,
-    TD_Y_DOUBLE_QUOTE_LT,
     TD_D_J,
     TD_T_B_LT,
     TD_H_P_LT,
     TD_M_G_LT,
     TD_F_COMMA,
-    TD_F_COMMA_LT,
     TD_U_QUOTE,
     TD_N_V_LT,
     TD_A_DOT_LT,
@@ -53,9 +51,3 @@ void c_esc_lt_finished(tap_dance_state_t *state, void *user_data); // C -> ESC -
 void c_esc_lt_reset(tap_dance_state_t *state, void *user_data);
 void u_quote_alt_finished(tap_dance_state_t *state, void *user_data); // U -> QUOTE -> LALT()
 void u_quote_alt_reset(tap_dance_state_t *state, void *user_data);
-
-void y_double_quote_lt_finished(tap_dance_state_t *state, void *user_data); // Y -> " -> GUI
-void y_double_quote_lt_reset(tap_dance_state_t *state, void *user_data);
-
-void f_comma_lt_finished(tap_dance_state_t *state, void *user_data); // F -> , -> GUI
-void f_comma_lt_reset(tap_dance_state_t *state, void *user_data);
