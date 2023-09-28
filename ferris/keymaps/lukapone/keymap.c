@@ -57,16 +57,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ),
 
     [_LAYER_0] = LAYOUT(
-           _______,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),_______,                                                 _______,LCTL_T(KC_L),LGUI_T(KC_F),TD(TD_U_QUOTE), _______,
-LSFT_T(KC_W),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),DB_TOGG,                 DB_TOGG,LT(_LAYER_1,KC_N),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
-           DT_PRNT,DT_UP,DT_DOWN,S(RSFT(KC_V)), QK_BOOT,                                                                      QK_BOOT, _______, _______, _______, _______,
+           QK_BOOT,TD(TD_C_ESC),TD(TD_Y_DOUBLE_QUOTE),LCTL_T(KC_D),KC_ENTER,                                                 KC_ENTER,LCTL_T(KC_L),LGUI_T(KC_F),TD(TD_U_QUOTE), QK_BOOT,
+LSFT_T(KC_W),LT(_LAYER_4_BRACKETS,KC_S),LT(_LAYER_3_ARROWS_CTRL_C,KC_T),TD(TD_H_P_LT),COPY,                 KC_BACKSPACE,LT(_LAYER_1,KC_N),TD(TD_A_DOT_LT),TD(TD_I_K),LSFT_T(KC_O),
+           SELECT_ALL,KC_G, KC_B, KC_P, PASTE,                                                                      _______, KC_V, KC_K, KC_K, _______,
                              LT(_LAYER_1,KC_R),LT(_LAYER_2_NUM,KC_M),                                                          LT(_LAYER_5_SYMBOLS,KC_SPACE), LT(_LAYER_1,KC_E)
     ),
 
     [_LAYER_1] = LAYOUT(
       _______,KC_Q, KC_X, KC_J, _______,                                                           _______,KC_DOT,KC_COMMA,KC_P, _______,
       LSFT_T(KC_Z),KC_G, KC_B, KC_P, _______,                                                       _______,KC_V, KC_PDOT,KC_K, LSFT_T(KC_SLSH),
-      _______, _______, _______, _______, _______,                                                     _______, _______, _______, _______, _______,
+      DT_PRNT,DT_UP,DT_DOWN, _______, _______,                                                     _______, _______, _______, _______, _______,
                               KC_SCLN,KC_NONUS_BACKSLASH,                                                      KC_EQL, KC_MINS
     ),
 
@@ -166,7 +166,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case SEND_LP:
         if (record->event.pressed) {
-            SEND_STRING("5990699Lp21");
+            SEND_STRING("Lp");
         }
         return false;
   }
